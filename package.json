@@ -1,0 +1,41 @@
+{
+  "name": "markademic",
+  "version": "0.1.0",
+  "description": "🏛 A markdown parser with academic features included.",
+  "main": "dist/markademic.js",
+  "typings": "./dist/markademic.d.ts",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stelatech/markademic.git"
+  },
+  "keywords": [
+    "markdown",
+    "academic",
+    "paper",
+    "publication",
+    "latex",
+    "syntax highlighting",
+    "citation",
+    "bibjson"
+  ],
+  "author": "Alain Galvan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stelatech/markademic/issues"
+  },
+  "homepage": "https://github.com/stelatech/markademic#readme",
+  "devDependencies": {
+    "@types/katex": "0.0.28",
+    "@types/node": "^6.0.38",
+    "ava": "^0.16.0",
+    "typescript": "^2.0.2"
+  },
+  "peerDependencies": {
+    "highlight.js": "^9.6.0",
+    "remarkable": "^1.6.2"
+  },
+  "dependencies": {}
+}
