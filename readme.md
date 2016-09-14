@@ -26,8 +26,14 @@ type Config = {
   // BibJSON file you're using in file.
   citations?: BibJSON,
 
+  // Symbols used in formulas.
+  symbols?: BibJSON
+
   // Reroute any relative links
   rerouteLinks?: ((str: string) => string)
+
+  // How to render references
+  referenceRender?: ((bib: BibJSON) => string)
 
 };
 ```
@@ -58,6 +64,49 @@ let html = markademic(config);
 ```
 
 Similar to Latex References, to place references, simply write `[^yourrefname]`, and this will be matched with your configuration object's key of the same name (minus the `^`). (This is directly inspired by the same feature on [stackedit.io](https://stackedit.io)).
+
+On the bottom of your markdown file there will be some autoamtically generated references that look like this:
+
+| References     |
+|:---------------|
+| [gregory2014]<br>**_Game Engine Architecture, Second Edition._**<br>Gregory, Jason<br>CRC Press, 2014. |
+| [moller2008]<br>**_Real Time Rendering, Third Edition._**<br>Akenine-Moller, Thomas<br>CRC Press, 2008. |
+
+### LaTex
+
+Latex is a markup language that's really suited for writing math equations:
+
+```tex
+\gamma = \mu \chi + \beta
+```
+
+Easily describe mathematical proofs, formulas, or formalize some algorithms. Marademic features a latex parser as well as a `symbols` config parameter where you can specify what the symbols used in your document mean.
+
+### Syntax Highlighting
+
+```glsl
+vec4 integrate( in vec4 sum, in float dif, in float density, in vec3 bgcol, in float time )
+{
+    //Colors
+    vec3 gray = vec3(0.65);
+    vec3 lightgray = vec3(1.0,0.95,0.8);
+    vec3 bluegray = vec3(0.65,0.68,0.7);
+    vec3 orangegray =  vec3(0.7, 0.5, 0.3);
+
+    //Density Colors
+    vec4 col = vec4( mix( 1.15 * lightgray, gray, density ), density );
+    vec3 lin =  (1.3 * bluegray) + (0.5 * orangegray * dif);
+    col.xyz *= lin;
+    col.xyz = mix( col.xyz, bgcol, 1.0 - exp(-0.003*time*time) );
+
+    //Front to Back Blending
+    col.a *= 0.4;
+    col.rgb *= col.a;
+    return sum + col*(1.0 - sum.a);
+}
+```
+
+write code in JavaScript, TypeScript, C++, Go, you name it, we've got it.
 
 [cover-img]: assets/cover.gif
 [cover-url]: http://codepen.io/alaingalvan/details/EgjbKP/

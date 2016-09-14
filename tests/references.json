@@ -1,0 +1,107 @@
+{
+  "gregory2014": {
+    "title": "Game Engine Architecture, Second Edition.",
+    "author": [
+      {
+        "name": "Gregory, Jason"
+      }
+    ],
+    "type": "book",
+    "year": "2014",
+    "publisher": "CRC Press",
+    "link": [
+      {
+        "url": "http://www.gameenginebook.com/"
+      }
+    ],
+    "identifier": [
+      {
+        "type": "doi",
+        "id": "10.1186/1758-2946-3-47"
+      }
+    ]
+  },
+  "vulkanspec": {
+    "link": [
+      {
+        "url": "https://www.khronos.org/registry/vulkan/specs/1.0/xhtml/vkspec.html"
+      }
+    ]
+  },
+  "vulkantutorial": {
+    "link": [
+      {
+        "url": "https://vulkan-tutorial.com"
+      }
+    ]
+  },
+  "vulkanloaders": {
+    "link": [
+      {
+        "url": "https://github.com/LunarG/VulkanTools/blob/master/loader/LoaderAndLayerInterface.md"
+      }
+    ]
+  },
+  "saschaVulkanDemos": {
+    "author": [
+      {
+        "name": "Willems, Sascha"
+      }
+    ],
+    "link": [
+      {
+        "url": "https://github.com/SaschaWillems/Vulkan"
+      }
+    ]
+  },
+  "singh2016": {
+    "title": "Vulkan Essentials",
+    "author": [
+      {
+        "name": "Singh, Parminder"
+      }
+    ],
+    "type": "book",
+    "year": "2016",
+    "publisher": "Packt Publishing",
+    "link": [
+      {
+        "url": "https://www.packtpub.com/application-development/vulkan-essentials"
+      }
+    ]
+  },
+  "moller2008": {
+    "title": "Real Time Rendering, Third Edition",
+    "author": [
+      {
+        "name": "Akenine-Moller, Thomas"
+      },
+      {
+        "name": "Haines, Eric"
+      },
+      {
+        "name": "Hoffman, Naty"
+      }
+    ],
+    "type": "book",
+    "year": "2008",
+    "publisher": "CRC Press",
+    "link": [
+      {
+        "url": "http://www.realtimerendering.com/"
+      }
+    ]
+  },
+  "kubisch2016": {
+    "title":"OpenGL like Vulkan",
+    "author": [
+      {
+        "name": "Kubisch, Christoph"
+      }
+    ],
+    "type":"article",
+    "link": [{
+      "url": "https://developer.nvidia.com/opengl-vulkan"
+    }]
+  }
+}
