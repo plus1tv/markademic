@@ -1,0 +1,6 @@
+tests
+coverage
+docs
+src
+webpack.*.js
+.travis.yml

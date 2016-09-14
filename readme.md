@@ -5,7 +5,7 @@
 [![Dependency Status][david-img]][david-url]
 [![devDependency Status][david-dev-img]][david-dev-url]
 
-A markdown parser with citation support, latex, and syntax highlighting, powered by Remarkable, BibJSON, Katex, and highlight.js.
+A markdown parser for academic articles, powered by Remarkable, BibJSON, Katex, and highlight.js.
 
 ## Install
 
@@ -18,13 +18,23 @@ npm i markademic -S
 ```js
 import markademic from 'markademic';
 import citations from './citations.json';
+import fs from 'fs';
+import path from 'path';
 
-let html = markademic('./readme.md', citations);
+// type Config = {input: string, citations?: BibJSON, rerouteLinks?: (link: string) => string}) => string}
+let config = {
+  input: fs.readFileSync('./input.md').toString(),
+  citations: require('./citations.json'),
+  rerouteLinks: (link) => path.join('https://alain.xyz/myblogpost/', link)
+}
+
+// type markademic = (config: Config)
+let html = markademic(config);
 ```
 
 [cover-img]: assets/cover.gif
 [cover-url]: http://codepen.io/alaingalvan/details/EgjbKP/
-[release-img]: https://img.shields.io/badge/release-0.1.10-4dbfcc.svg?style=flat-square
+[release-img]: https://img.shields.io/badge/release-0.1.0-4dbfcc.svg?style=flat-square
 [license-img]: http://img.shields.io/:license-mit-blue.svg?style=flat-square
 [license-url]: https://opensource.org/licenses/MIT
 [david-url]: https://david-dm.org/stelatech/markademic

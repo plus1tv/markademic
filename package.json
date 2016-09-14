@@ -5,7 +5,13 @@
   "main": "dist/markademic.js",
   "typings": "./dist/markademic.d.ts",
   "scripts": {
-    "test": "ava"
+    "build:develop": "cross-env NODE_ENV=development webpack src/anime.js dist/anime.js",
+    "build:production": "cross-env NODE_ENV=production webpack src/anime.js dist/anime.min.js",
+    "build:publish": "npm run build:develop && npm run build:production",
+    "publish": "npm run build:publish && npm publish",
+    "test": "ava",
+    "coverage": "ava && codecov",
+    "test:watch": "ava --converage --watch"
   },
   "repository": {
     "type": "git",
@@ -31,7 +37,10 @@
     "@types/katex": "0.0.28",
     "@types/node": "^6.0.38",
     "ava": "^0.16.0",
-    "typescript": "^2.0.2"
+    "codecov": "^1.0.1",
+    "ts-loader": "^0.8.2",
+    "typescript": "^2.0.2",
+    "webpack": "^2.1.0-beta.22"
   },
   "peerDependencies": {
     "highlight.js": "^9.6.0",
