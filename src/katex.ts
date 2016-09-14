@@ -130,8 +130,6 @@ class Katex {
     return result;
   }
 
-
-
 }
 
 class Boundary {
@@ -148,4 +146,4 @@ class Boundary {
 
 const katexRender = new Katex();
 
-export default (str) => katexRender.render(str);
+export default (str: string) => katexRender.render(str);
