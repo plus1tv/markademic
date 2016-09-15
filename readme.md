@@ -27,13 +27,10 @@ type Config = {
   citations?: BibJSON,
 
   // Symbols used in formulas.
-  symbols?: BibJSON
+  symbols?: {[latexSymbol: string]: {type: string, description: string}},
 
   // Reroute any relative links
   rerouteLinks?: ((str: string) => string)
-
-  // How to render references
-  referenceRender?: ((bib: BibJSON) => string)
 
 };
 ```
@@ -49,6 +46,7 @@ import path from 'path';
 let config = {
   input: fs.readFileSync('./input.md').toString(),
   citations: require('./citations.json'),
+  symbols: require('./symbols.json'),
   rerouteLinks: (link) => path.join('https://alain.xyz/myblogpost/', link)
 }
 
@@ -69,7 +67,7 @@ On the bottom of your markdown file there will be some autoamtically generated r
 
 | References     |
 |:---------------|
-| [gregory2014]<br>**_Game Engine Architecture, Second Edition._**<br>Gregory, Jason<br>CRC Press, 2014. |
+| [[gregory2014]<br>**_Game Engine Architecture, Second Edition._**<br>Gregory, Jason<br>CRC Press, 2014. |
 | [moller2008]<br>**_Real Time Rendering, Third Edition._**<br>Akenine-Moller, Thomas<br>CRC Press, 2008. |
 
 ### LaTex
@@ -80,7 +78,11 @@ Latex is a markup language that's really suited for writing math equations:
 \gamma = \mu \chi + \beta
 ```
 
-Easily describe mathematical proofs, formulas, or formalize some algorithms. Marademic features a latex parser as well as a `symbols` config parameter where you can specify what the symbols used in your document mean.
+Easily describe mathematical proofs, formulas, or formalize some algorithms. Marademic features a latex parser as well as a `symbols` config parameter where you can specify what the symbols used in your document mean. Then on the bottom of the page just before references, this will appear *(formatted of course!)*.
+
+| Symbol        | Type               | Description                     |
+|:--------------|:-------------------|:--------------------------------|
+| \( \hat{n} \) | \( \mathbb{R}^2 \) | Normal to surface point \( X \) |
 
 ### Syntax Highlighting
 
@@ -106,7 +108,7 @@ vec4 integrate( in vec4 sum, in float dif, in float density, in vec3 bgcol, in f
 }
 ```
 
-write code in JavaScript, TypeScript, C++, Go, you name it, we've got it.
+The same syntax highlighting featured in Github flavored markdown, [odds are it supports your language (170 and counting!)](https://highlightjs.org/static/demo/).
 
 [cover-img]: assets/cover.gif
 [cover-url]: http://codepen.io/alaingalvan/details/EgjbKP/
