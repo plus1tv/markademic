@@ -5,13 +5,14 @@
   "main": "dist/markademic.js",
   "typings": "./dist/markademic.d.ts",
   "scripts": {
-    "build:develop": "cross-env NODE_ENV=development webpack src/markademic.js dist/markademic.js",
-    "build:production": "cross-env NODE_ENV=production webpack src/markademic.js dist/markademic.min.js",
+    "build:develop": "cross-env NODE_ENV=development webpack src/markademic.ts dist/markademic.js",
+    "build:production": "cross-env NODE_ENV=production webpack src/markademic.ts dist/markademic.min.js",
     "build:publish": "npm run build:develop && npm run build:production",
     "publish": "npm run build:publish && npm publish",
     "test": "ava",
     "coverage": "ava && codecov",
-    "test:watch": "ava --converage --watch"
+    "test:watch": "ava --converage --watch",
+    "dts": "dts-generator --name markademic --project ./ --exclude ./**/*.d.ts --out dist/markademic.d.ts"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,8 @@
     "@types/node": "^6.0.38",
     "ava": "^0.16.0",
     "codecov": "^1.0.1",
+    "cross-env": "^2.0.1",
+    "dts-generator": "^1.7.0",
     "ts-loader": "^0.8.2",
     "typescript": "^2.0.2",
     "webpack": "^2.1.0-beta.22"

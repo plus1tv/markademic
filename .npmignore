@@ -4,3 +4,4 @@ docs
 src
 webpack.*.js
 .travis.yml
+definitions.d.ts

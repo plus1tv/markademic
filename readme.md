@@ -53,6 +53,16 @@ let config = {
 let html = markademic(config);
 ```
 
+In your project you will need the katex css files, as well as highlight.js css files. 
+
+## features
+
+- Citation support following the BibJSON specification.
+- Symbol definitions for LaTex math expressions.
+- Syntax highlighting for 170 languages powered by highlight.js
+- Reroute relative links for publishing to different platforms or syncing your output with the permalink of your website.
+- Tooltip support powered by hint.css.
+
 ## Markdown Additions
 
 ### Citations
@@ -61,13 +71,13 @@ let html = markademic(config);
 > I sometimes worry my life's work will be reduced to a 200-line @Shadertoy submission.[^timsweeny]
 ```
 
-Similar to Latex References, to place references, simply write `[^yourrefname]`, and this will be matched with your configuration object's key of the same name (minus the `^`). (This is directly inspired by the same feature on [stackedit.io](https://stackedit.io)).
+Similar to Latex References, to place references, simply write `[^yourrefname]`, and this will be matched with your BibJSON object's key of the same name (minus the `^`). (This is directly inspired by the same feature on [stackedit.io](https://stackedit.io)).
 
 On the bottom of your markdown file there will be some autoamtically generated references that look like this:
 
 | References     |
 |:---------------|
-| [[gregory2014]<br>**_Game Engine Architecture, Second Edition._**<br>Gregory, Jason<br>CRC Press, 2014. |
+| [gregory2014]<br>**_Game Engine Architecture, Second Edition._**<br>Gregory, Jason<br>CRC Press, 2014. |
 | [moller2008]<br>**_Real Time Rendering, Third Edition._**<br>Akenine-Moller, Thomas<br>CRC Press, 2008. |
 
 ### LaTex
@@ -83,6 +93,8 @@ Easily describe mathematical proofs, formulas, or formalize some algorithms. Mar
 | Symbol        | Type               | Description                     |
 |:--------------|:-------------------|:--------------------------------|
 | \( \hat{n} \) | \( \mathbb{R}^2 \) | Normal to surface point \( X \) |
+
+Inspired by the same feature in [The Graphics Codex](http://grahpicscodex.com).
 
 ### Syntax Highlighting
 

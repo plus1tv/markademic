@@ -24,3 +24,7 @@ declare module "highlight.js" {
 
   export = hl;
 }
+
+type BibjSON = {
+  [citation: string]: any
+}
