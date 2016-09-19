@@ -1,17 +1,24 @@
 const webpack = require('webpack');
+const path = require('path');
 const env = process.env.NODE_ENV;
 
 let config = {
-
+  context: path.join(__dirname, 'src'),
   output: {
     library: 'Markademic',
     libraryTarget: 'umd'
   },
-
+  resolve: {
+    extensions: ['', '.ts', '.tsx', '.js'],
+    modules: [
+      path.resolve('./src'),
+      'node_modules'
+    ]
+  },
   module: {
     loaders: [
       {
-        test: /\.ts$/,
+        test: /\.ts/,
         exclude: /node_modules/,
         loader: 'ts-loader'
       }
