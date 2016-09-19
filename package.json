@@ -1,7 +1,7 @@
 {
   "name": "markademic",
-  "version": "0.1.0",
-  "description": "🏛 A markdown parser with academic features included.",
+  "version": "0.1.1",
+  "description": "🏫 A markdown parser with academic features included.",
   "main": "dist/markademic.js",
   "typings": "./dist/markademic.d.ts",
   "scripts": {
