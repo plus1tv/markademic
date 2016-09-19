@@ -8,11 +8,10 @@
     "build:develop": "cross-env NODE_ENV=development webpack src/markademic.ts dist/markademic.js",
     "build:production": "cross-env NODE_ENV=production webpack src/markademic.ts dist/markademic.min.js",
     "build:publish": "npm run build:develop && npm run build:production",
-    "publish": "npm run build:publish && npm publish",
     "test": "ava",
     "coverage": "ava && codecov",
     "test:watch": "ava --converage --watch",
-    "dts": "dts-generator --name markademic --project ./ --exclude ./**/*.d.ts --out dist/markademic.d.ts"
+    "dts": "dts-generator --project ./ --exclude ./**/*.d.ts --main ./src/markademic.ts --name markademic --out dist/markademic.d.ts"
   },
   "repository": {
     "type": "git",

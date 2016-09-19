@@ -5,3 +5,6 @@ src
 webpack.*.js
 .travis.yml
 definitions.d.ts
+.vscode
+tsconfig.json
+license.md

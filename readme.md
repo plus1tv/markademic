@@ -1,6 +1,6 @@
 # markademic
 
-![Release][release-img]
+[![Npm Package][npm-img]][npm-url]
 [![License][license-img]][license-url]
 [![Dependency Status][david-img]][david-url]
 [![devDependency Status][david-dev-img]][david-dev-url]
@@ -55,13 +55,13 @@ let html = markademic(config);
 
 In your project you will need the katex css files, as well as highlight.js css files. 
 
-## features
+## Features
 
 - Citation support following the BibJSON specification.
 - Symbol definitions for LaTex math expressions.
 - Syntax highlighting for 170 languages powered by highlight.js
 - Reroute relative links for publishing to different platforms or syncing your output with the permalink of your website.
-- Tooltip support powered by hint.css.
+- Tooltip support powered by hint.css. (In Progress)
 
 ## Markdown Additions
 
@@ -95,6 +95,12 @@ Easily describe mathematical proofs, formulas, or formalize some algorithms. Mar
 | \( \hat{n} \) | \( \mathbb{R}^2 \) | Normal to surface point \( X \) |
 
 Inspired by the same feature in [The Graphics Codex](http://grahpicscodex.com).
+
+### Tooltips
+
+```markdown
+Suround any statement with [@Your tooltip text here](the same code as a link or image, but with an @ at the front), and you'll have a tooltip. You can even put it around latex expressions!
+```
 
 ### Syntax Highlighting
 
