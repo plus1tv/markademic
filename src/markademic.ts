@@ -17,8 +17,10 @@ export type Config = {
 function markademic(config: Config) {
   
   let out = katexRender(config.input);
-
-  out = remarkableRender(out);
+  if (out !== undefined)
+    out = remarkableRender(out);
+  else
+    out = remarkableRender(config.input);
 
   if (config.rerouteLinks)
     out = rerouteLinks(out, config.rerouteLinks);

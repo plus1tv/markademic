@@ -2,7 +2,7 @@ function rerouteLinks(input: string, target: ((str: string) => string)) {
 
   let regex = /(href|src)\s*=\s*(?:\"|\')?\s*([^\"\'\/]+)(?:[^\"\']*)(?=(\"|\'))?/g;
 
-  input.replace(regex, (link: string) => {
+  return input.replace(regex, (link: string) => {
 
     // If there's an http(s) or ftp, don't modify
     if (link.match(/"(http(s?)|ftp):\/\//)) return link;

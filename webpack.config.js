@@ -29,6 +29,10 @@ let config = {
     Buffer: false
   },
 
+  ts: {
+    transpileOnly: true
+  },
+  
   externals: [
     {
       'highlight.js': {
