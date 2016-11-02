@@ -1,6 +1,6 @@
 {
   "name": "markademic",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "🏫 A markdown parser with academic features included.",
   "main": "dist/markademic.js",
   "typings": "./dist/markademic.d.ts",
@@ -44,10 +44,9 @@
     "typescript": "^2.0.3",
     "webpack": "^2.1.0-beta.22"
   },
-  "peerDependencies": {
+  "dependencies": {
     "highlight.js": "^9.6.0",
     "remarkable": "^1.6.2",
     "katex": "^0.6.0"
-  },
-  "dependencies": {}
+  }
 }
