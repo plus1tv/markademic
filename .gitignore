@@ -14,8 +14,8 @@ pids
 *.pid
 *.seed
 *.ssh
-*.map
-*.js
+**/*.map
+**/*.js
 
 # node-waf configuration
 .lock-wscript

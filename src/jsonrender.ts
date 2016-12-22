@@ -1,23 +1,25 @@
 import * as katex from 'katex';
 
 type SymbolMap = {
-    [latexSymbol: string]: {
-      type: string,
-      description: string
-    }
-  };
+  [latexSymbol: string]: {
+    type: string,
+    description: string
+  }
+};
 
 function symbolRender(input: string, symbols: SymbolMap) {
-  
+
   let symbolTable =
     Object.keys(symbols).map(key => {
       let mathSymbol = symbols[key];
+
+      var symbolRender = katex.renderToString(key);
 
       let row =
         `
 <tr>
 <td>
-${katex.renderToString(key)}
+${symbolRender}
 </td>
 <td>
 ${mathSymbol.type}
@@ -31,7 +33,7 @@ ${mathSymbol.description}
       return row;
     })
       .reduce((prev, cur) => prev + cur,
-      '<table class="mathsymbols">') + '</table>';
+      '<table class="markademic-symbols">') + '</table>';
 
   return input + symbolTable;
 }
@@ -44,7 +46,7 @@ function citationsRender(input: string, citations: BibjSON) {
   // Remove from input if it doesn't exist.
   let foundCitations: string[] = [];
 
-  input = input.replace(/\[\^\w*\]/, (citekey) => {
+  input = input.replace(/\[\^\w*\]/g, (citekey) => {
     var citename = citekey.substr(2, citekey.length - 3);
     if (typeof citations[citename] !== undefined) {
       foundCitations = [...foundCitations, citename];
@@ -74,7 +76,7 @@ ${(publisher) ? `${citation.publisher} ${citation.year}` : ''}.
       return row;
     })
     .reduce((prev, cur) => prev + cur,
-    '<table class="bibliography">') + '</table>';
+    '<table class="markademic-citations">') + '</table>';
 
   return input + citationTable;
 }
