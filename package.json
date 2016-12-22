@@ -10,7 +10,7 @@
     "build:publish": "npm run build:develop && npm run build:production",
     "pretest": "tsc",
     "test": "ava tests/markademic.spec.js",
-    "coverage": "nyc report --reporter=text-lcov | coveralls ava tests/markademic.spec.js | codecov",
+    "coverage": "nyc npm test | nyc report --reporter=lcov | codecov",
     "test:watch": "ava --converage --watch",
     "dts": "dts-generator --project ./ --exclude ./**/*.d.ts --main ./src/markademic.ts --name markademic --out dist/markademic.d.ts"
   },
