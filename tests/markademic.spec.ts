@@ -1,23 +1,32 @@
 import test from 'ava';
-import {readFileSync, writeFileSync} from 'fs';
-import {join} from 'path';
+import { readFileSync, writeFileSync } from 'fs';
+import { join } from 'path';
 
 import markademic from '../src/markademic';
 
 
 test((t) => {
   var input = readFileSync(join(__dirname, 'notes.md'))
-  .toString();
+    .toString();
 
   var citations = JSON.parse(
     readFileSync(join(__dirname, 'references.json'))
-  .toString());
+      .toString());
+
+  var symbols = JSON.parse(
+    readFileSync(join(__dirname, 'symbols.json'))
+      .toString());
 
   var compiled = markademic({
     input,
     rerouteLinks: (link) => join('https://alain.xyz/myblogpost/', link),
-    citations
+    citations,
+    symbols
   });
 
-  t.is(compiled, readFileSync(join(__dirname, 'out.html')).toString());
+  //writeFileSync('out.html', compiled);
+
+  var outFile = readFileSync(join(__dirname, 'out.html')).toString();
+
+  t.is(compiled, outFile);
 });

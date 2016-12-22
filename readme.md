@@ -2,6 +2,8 @@
 
 [![Npm Package][npm-img]][npm-url]
 [![License][license-img]][license-url]
+[![Unit Tests][travis-img]][travis-url]
+[![Coverage Tests][codecov-img]][codecov-url]
 [![Dependency Status][david-img]][david-url]
 [![devDependency Status][david-dev-img]][david-dev-url]
 
@@ -133,14 +135,14 @@ The same syntax highlighting featured in Github flavored markdown, [odds are it 
 [release-img]: https://img.shields.io/badge/release-0.1.0-4dbfcc.svg?style=flat-square
 [license-img]: http://img.shields.io/:license-mit-blue.svg?style=flat-square
 [license-url]: https://opensource.org/licenses/MIT
-[david-url]: https://david-dm.org/stelatech/markademic
-[david-img]: https://david-dm.org/stelatech/markademic.svg?style=flat-square
-[david-dev-url]: https://david-dm.org/stelatech/markademic#info=devDependencies
-[david-dev-img]: https://david-dm.org/stelatech/markademic/dev-status.svg?style=flat-square
-[travis-img]: https://img.shields.io/travis/stelatech/markademic.svg?style=flat-square
-[travis-url]:https://travis-ci.org/stelatech/markademic
-[codecov-img]:https://img.shields.io/codecov/c/github/stelatech/markademic.svg?style=flat-square
-[codecov-url]: https://codecov.io/gh/stelatech/markademic
+[david-url]: https://david-dm.org/hyperfuse/markademic
+[david-img]: https://david-dm.org/hyperfuse/markademic.svg?style=flat-square
+[david-dev-url]: https://david-dm.org/hyperfuse/markademic#info=devDependencies
+[david-dev-img]: https://david-dm.org/hyperfuse/markademic/dev-status.svg?style=flat-square
+[travis-img]: https://img.shields.io/travis/hyperfuse/markademic.svg?style=flat-square
+[travis-url]:https://travis-ci.org/hyperfuse/markademic
+[codecov-img]:https://img.shields.io/codecov/c/github/hyperfuse/markademic.svg?style=flat-square
+[codecov-url]: https://codecov.io/gh/hyperfuse/markademic
 [npm-img]: https://img.shields.io/npm/v/markademic.svg?style=flat-square
 [npm-url]: http://npm.im/markademic
 [npm-download-img]: https://img.shields.io/npm/dm/markademic.svg?style=flat-square

@@ -1,0 +1,6 @@
+{
+  "\\kappa": {
+    "type": "Function",
+    "description": "True absorption coefficient of a volumetric medium."
+  }
+}
