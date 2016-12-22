@@ -1,20 +1,23 @@
 import test from 'ava';
-import * as fs from 'fs';
-import * as path from 'path';
+import {readFileSync, writeFileSync} from 'fs';
+import {join} from 'path';
 
-import markademic from '../dist/markademic';
+import markademic from '../src/markademic';
 
 
 test((t) => {
+  var input = readFileSync(join(__dirname, 'notes.md'))
+  .toString();
+
+  var citations = JSON.parse(
+    readFileSync(join(__dirname, 'references.json'))
+  .toString());
+
   var compiled = markademic({
-    input: fs.readFileSync(path.join(__dirname, 'notes.md')).toString(),
-    rerouteLinks: (link) => path.join('https://alain.xyz/myblogpost/', link)
+    input,
+    rerouteLinks: (link) => join('https://alain.xyz/myblogpost/', link),
+    citations
   });
 
-  console.log(compiled);
-
-  t.is(compiled, `<h1>Markademic</h1>                                                                                                         
-<p>A markdown parser for academic articles, powered by <a href="https://github.com/jonschlinkert/remarkable">Remarkable</a>,
- <a href="http://okfnlabs.org/bibjson/">BibJSON</a>, <a href="https://khan.github.io/KaTeX/">Katex</a>, and <a href="http://
-highlightjs.org">highlight.js</a>.</p>`);
+  t.is(compiled, readFileSync(join(__dirname, 'out.html')).toString());
 });

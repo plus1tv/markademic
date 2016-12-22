@@ -9,7 +9,7 @@ let config = {
     libraryTarget: 'umd'
   },
   resolve: {
-    extensions: ['', '.ts', '.tsx', '.js'],
+    extensions: ['.ts', '.tsx', '.js'],
     modules: [
       path.resolve('./src'),
       'node_modules'
@@ -29,10 +29,6 @@ let config = {
     Buffer: false
   },
 
-  ts: {
-    transpileOnly: true
-  },
-  
   externals: [
     {
       'highlight.js': {
@@ -58,7 +54,6 @@ let config = {
 
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
