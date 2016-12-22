@@ -9,7 +9,7 @@ let config = {
     libraryTarget: 'umd'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: ['.ts', '.tsx'],
     modules: [
       path.resolve('./src'),
       'node_modules'
@@ -20,7 +20,13 @@ let config = {
       {
         test: /\.ts/,
         exclude: /node_modules/,
-        loader: 'ts-loader'
+        loader: 'ts-loader',
+        options: {
+          transpileOnly: true,
+          compilerOptions: {
+            isolatedModules: true
+          }
+        }
       }
     ]
   },
@@ -59,20 +65,6 @@ let config = {
     })
   ]
 
-}
-
-if (env === 'production') {
-  config.plugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        pure_getters: true,
-        unsafe: true,
-        unsafe_comps: true,
-        screw_ie8: true,
-        warnings: false
-      }
-    })
-  )
 }
 
 module.exports = config;

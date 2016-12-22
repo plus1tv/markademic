@@ -6,7 +6,7 @@
   "typings": "./markademic.d.ts",
   "scripts": {
     "build:develop": "cross-env NODE_ENV=development webpack src/markademic.ts dist/markademic.js",
-    "build:production": "cross-env NODE_ENV=production webpack src/markademic.ts dist/markademic.min.js",
+    "build:production": "cross-env NODE_ENV=production webpack src/markademic.ts dist/markademic.js",
     "build:publish": "npm run build:develop && npm run build:production",
     "pretest": "tsc",
     "test": "ava tests/markademic.spec.js",
