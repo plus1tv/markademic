@@ -1,5 +1,3 @@
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
-
 # Citations and Formulas
 
 Gregory et al. describe the game engine architecture adopted by Naughty Dog and Ogre [^gregory2014].
