@@ -1,4 +1,4 @@
-# markademic
+# Markademic
 
 [![Npm Package][npm-img]][npm-url]
 [![License][license-img]][license-url]
@@ -101,13 +101,13 @@ Latex is a markup language that's really suited for writing math equations:
 
 becomes:
 
-
+<img src="https://latex.codecogs.com/png.latex?\gamma&space;=&space;\mu&space;\chi&space;&plus;&space;\beta" title="\gamma = \mu \chi + \beta" />
 
 Easily describe mathematical proofs, formulas, or formalize some algorithms. Marademic features a latex parser as well as a `symbols` config parameter where you can specify what the symbols used in your document mean. Then on the bottom of the page just before references, this will appear *(formatted of course!)*.
 
 | Symbol        | Type               | Description                     |
 |:--------------|:-------------------|:--------------------------------|
-| <img src="https://latex.codecogs.com/png.latex?\(&space;\hat{n}&space;\)" title="\( \hat{n} \)" /> | <img src="https://latex.codecogs.com/png.latex?\(&space;\mathbb{R}^2&space;\)" title="\( \mathbb{R}^2 \)" /> | Normal to surface point <img src="https://latex.codecogs.com/png.latex?\(&space;X&space;\)" title="\( X \)" /> |
+| <img src="https://latex.codecogs.com/png.latex?\(&space;\hat{n}&space;\)" title="\( \hat{n} \)" /> | <img src="https://latex.codecogs.com/png.latex?\(&space;\mathbb{R}^2&space;\)" title="\( \mathbb{R}^2 \)" /> | Normal to surface point X |
 
 Inspired by the same feature in [The Graphics Codex](http://grahpicscodex.com).
 
