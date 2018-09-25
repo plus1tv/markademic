@@ -7,13 +7,25 @@
 [![Dependency Status][david-img]][david-url]
 [![devDependency Status][david-dev-img]][david-dev-url]
 
-A markdown parser for academic articles, powered by [Remarkable](https://github.com/jonschlinkert/remarkable), [BibJSON](http://okfnlabs.org/bibjson/), [Katex](https://khan.github.io/KaTeX/), and [highlight.js](http://highlightjs.org).
-
-## Install
-
 ```bash
 npm i markademic -S
 ```
+
+A tool for rendering academically flavored markdown.
+
+## Features
+
+- 😲 Markdown rendering powered by [Remarkable](https://github.com/jonschlinkert/remarkable).
+
+- 👥 Citation support following the [BibJSON](http://okfnlabs.org/bibjson/) specification.
+
+- 🔣 Symbol definition support for cases where you want to define the meaning of a math symbol used in a formula.
+
+- 🧤 LaTeX rendering support with [Katex](https://khan.github.io/KaTeX/).
+
+- 🖊️ Syntax highlighting for 170 languages powered by [highlight.js](http://highlightjs.org).
+
+- 🌠 Reroute relative links for publishing to different platforms or syncing your output with the permalink of your website.
 
 ## Usage
 
@@ -57,32 +69,29 @@ let html = markademic(config);
 
 In your project you will need the katex css files, as well as highlight.js css files. 
 
-## Features
-
-- Citation support following the BibJSON specification.
-- Symbol definitions for LaTex math expressions.
-- Syntax highlighting for 170 languages powered by highlight.js
-- Reroute relative links for publishing to different platforms or syncing your output with the permalink of your website.
-- Tooltip support powered by hint.css. (In Progress)
 
 ## Markdown Additions
 
 ### Citations
 
 ```markdown
-> I sometimes worry my life's work will be reduced to a 200-line @Shadertoy submission.[^timsweeny]
+> I sometimes worry my life's work will be reduced to a 200-line @Shadertoy submission [^timsweeny].
 ```
+
+becomes:
+
+> I sometimes worry my life's work will be reduced to a 200-line @Shadertoy submission [[Sweeny 2015]](#sweeny2015).
 
 Similar to Latex References, to place references, simply write `[^yourrefname]`, and this will be matched with your BibJSON object's key of the same name (minus the `^`). (This is directly inspired by the same feature on [stackedit.io](https://stackedit.io)).
 
-On the bottom of your markdown file there will be some autoamtically generated references that look like this:
+On the bottom of your markdown file there will be some automatically generated references that look like this:
 
 | References     |
 |:---------------|
-| [gregory2014]<br>**_Game Engine Architecture, Second Edition._**<br>Gregory, Jason<br>CRC Press, 2014. |
-| [moller2008]<br>**_Real Time Rendering, Third Edition._**<br>Akenine-Moller, Thomas<br>CRC Press, 2008. |
+| [Gregory 2014]<br>**_Game Engine Architecture, Second Edition._**<br>Gregory, Jason<br>CRC Press, 2014. |
+| [Moller et al. 2008]<br>**_Real Time Rendering, Third Edition._**<br>Akenine-Moller, Thomas<br>CRC Press, 2008. |
 
-### LaTex
+### LaTeX
 
 Latex is a markup language that's really suited for writing math equations:
 
@@ -90,19 +99,17 @@ Latex is a markup language that's really suited for writing math equations:
 \gamma = \mu \chi + \beta
 ```
 
+becomes:
+
+
+
 Easily describe mathematical proofs, formulas, or formalize some algorithms. Marademic features a latex parser as well as a `symbols` config parameter where you can specify what the symbols used in your document mean. Then on the bottom of the page just before references, this will appear *(formatted of course!)*.
 
 | Symbol        | Type               | Description                     |
 |:--------------|:-------------------|:--------------------------------|
-| \( \hat{n} \) | \( \mathbb{R}^2 \) | Normal to surface point \( X \) |
+| <img src="https://latex.codecogs.com/png.latex?\(&space;\hat{n}&space;\)" title="\( \hat{n} \)" /> | <img src="https://latex.codecogs.com/png.latex?\(&space;\mathbb{R}^2&space;\)" title="\( \mathbb{R}^2 \)" /> | Normal to surface point <img src="https://latex.codecogs.com/png.latex?\(&space;X&space;\)" title="\( X \)" /> |
 
 Inspired by the same feature in [The Graphics Codex](http://grahpicscodex.com).
-
-### Tooltips
-
-```markdown
-Suround any statement with [@Your tooltip text here](the same code as a link or image, but with an @ at the front), and you'll have a tooltip. You can even put it around latex expressions!
-```
 
 ### Syntax Highlighting
 

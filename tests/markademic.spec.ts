@@ -25,7 +25,7 @@ test((t) => {
   });
 
   //Verify if latex compiled, tables were generated.
-  //writeFileSync('tests/out.html', compiled);
+  writeFileSync('tests/out.html', compiled);
 
   var outFile = readFileSync(join(__dirname, 'out.html')).toString();
 
