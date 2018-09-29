@@ -5,15 +5,12 @@
   "main": "dist/markademic.js",
   "typings": "./markademic.d.ts",
   "scripts": {
-    "build:develop": "cross-env NODE_ENV=development webpack src/markademic.ts dist/markademic.js",
-    "build:production": "cross-env NODE_ENV=production webpack src/markademic.ts dist/markademic.js",
-    "build:publish": "npm run build:develop && npm run build:production",
+    "build": "webpack --config webpack.prod.js",
     "pretest": "tsc",
     "test": "ava tests/markademic.spec.js",
     "coverage": "nyc npm test && nyc report --reporter=lcov && codecov",
     "test:watch": "ava --converage --watch",
-    "dts": "dts-generator --project ./ --exclude ./**/*.d.ts --main ./src/markademic.ts --name markademic --out dist/markademic.d.ts",
-    "start": "npm run build:production"
+    "start": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -41,12 +38,14 @@
     "ava": "^0.25.x",
     "codecov": "^3.1.x",
     "coveralls": "^3.0.x",
-    "cross-env": "^5.2.x",
     "nyc": "^13.0.x",
     "ts-loader": "^5.2.x",
-    "typescript": "^3.0.x",
-    "webpack": "^4.19.x",
-    "webpack-cli": "^3.1.x"
+    "typescript": "^3.1.x",
+    "clean-webpack-plugin": "^0.1.x",
+    "uglifyjs-webpack-plugin": "^2.0.x",
+    "webpack": "^4.20.x",
+    "webpack-command": "^0.4.x",
+    "webpack-merge": "^4.1.x"
   },
   "dependencies": {
     "highlight.js": "^9.12.0",
