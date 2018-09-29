@@ -24,4 +24,5 @@ pids
 build/Release
 dist
 
-!webpack.config.js
+!webpack.common.js
+!webpack.prod.js
