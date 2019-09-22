@@ -9,3 +9,7 @@ Parminder provides an detailed overview of Vulkan in his book Vulkan Essentials 
 \[ \frac{dI(s)}{ds} = - \kappa(s) I(s) + q(s) \]
 
 According to Klaus Engel et al. in their book [Real Time Volume Graphics](http://www.real-time-volume-graphics.org/), The emission-absorption optical model leads to this volume rendering integral.
+
+## Machine Learning
+
+There's a variety of approaches that can be taken to both train and execute the model. Recent literature points to the use of adversarial networks [^xu2019] in combination with autonomous reinforcement learning.
