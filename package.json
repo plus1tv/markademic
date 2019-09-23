@@ -1,6 +1,6 @@
 {
   "name": "markademic",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "🏫 A tool for rendering academically flavored markdown.",
   "main": "dist/markademic.js",
   "typings": "./markademic.d.ts",

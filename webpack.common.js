@@ -1,12 +1,12 @@
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
 	context: path.join(__dirname, 'src'),
 	entry: {
 		app: './markademic.ts'
 	},
-	plugins: [ new CleanWebpackPlugin([ 'dist' ]) ],
+	plugins: [ new CleanWebpackPlugin() ],
 	output: {
 		filename: 'markademic.js',
 		path: path.resolve(__dirname, 'dist'),

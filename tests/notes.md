@@ -1,6 +1,6 @@
 # Citations and Formulas
 
-Gregory et al. describe the game engine architecture adopted by Naughty Dog and Ogre [^gregory2014].
+Gregory et al. [describe](assets/index.html) the game engine architecture adopted by Naughty Dog and Ogre [^gregory2014].
 
 Parminder provides an detailed overview of Vulkan in his book Vulkan Essentials [^singh2016].
 

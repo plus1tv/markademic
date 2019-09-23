@@ -139,7 +139,6 @@ function citationsRender(input: string, citations: BibjSON) {
                             : '';
                     }, '');
                 }
-                console.log(citationLinks);
 
                 let row = `
 <tr>

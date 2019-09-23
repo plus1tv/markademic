@@ -5,7 +5,7 @@ import { join } from 'path';
 import markademic from '../src/markademic';
 
 
-test((t) => {
+test('Test Example', (t) => {
   var input = readFileSync(join(__dirname, 'notes.md'))
     .toString();
 
