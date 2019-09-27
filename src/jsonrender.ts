@@ -47,10 +47,8 @@ function citationsRender(input: string, citations: BibjSON) {
     input = input.replace(/\[\^\w*\]/g, (citekey) => {
         var citename = citekey.substr(2, citekey.length - 3);
         if (citename in citations) {
-
             // Don't add to table if it already exists
-            if(!foundCitationsSet.has(citename))
-            {
+            if (!foundCitationsSet.has(citename)) {
                 foundCitationsSet.add(citename);
                 foundCitations = [ ...foundCitations, citename ];
             }
@@ -95,24 +93,28 @@ function citationsRender(input: string, citations: BibjSON) {
                 let citation = citations[citename];
                 let { title = '', author = [], publisher = '', journal = '', year = 0, link = [] } = citation;
 
-                let citationName = `[${cleanedCitationNames[i]}]<br>`;
-                let tableTitle = title.length > 0 ? `<em><strong>${title}</strong></em><br>` : '';
+                let citationName = `<span class="markademic-citename">[${cleanedCitationNames[i]}]</span><br>`;
+                let tableTitle =
+                    title.length > 0
+                        ? `<em><strong><span class="markademic-title">${title}</span></strong></em><br>`
+                        : '';
                 let authorNames = author.reduce(
                     (prev, cur, i) =>
-                        prev + ( cur['name'] ? (i >= 1 ? (i == author.length - 1 ? ' and ' : ', ') : '') + cur['name'] : '' ),
+                        prev +
+                        (cur['name'] ? (i >= 1 ? (i == author.length - 1 ? ' and ' : ', ') : '') + cur['name'] : ''),
                     ''
                 );
                 if (authorNames.length > 0) {
-                    authorNames += '<br>';
+                    authorNames = '<span class="markademic-authors">' + authorNames + '</span><br>';
                 }
                 let publisherJournalEtc = '';
                 if (publisher.length > 0) {
                     publisherJournalEtc += publisher;
-				}
+                }
                 if (journal.length > 0) {
-					if (publisherJournalEtc.length > 0) {
-						publisherJournalEtc += ', ';
-					}
+                    if (publisherJournalEtc.length > 0) {
+                        publisherJournalEtc += ', ';
+                    }
                     publisherJournalEtc += journal;
                 }
                 if (publisherJournalEtc.length > 0) {
@@ -122,7 +124,7 @@ function citationsRender(input: string, citations: BibjSON) {
                     publisherJournalEtc += year;
                 }
                 if (publisherJournalEtc.length > 0) {
-                    publisherJournalEtc += '<br>';
+                    publisherJournalEtc = '<span class="markademic-publisher">' + publisherJournalEtc + '</span><br>';
                 }
 
                 let citationLinks = '';
@@ -140,10 +142,13 @@ function citationsRender(input: string, citations: BibjSON) {
                         if (nextSlash) {
                             cleanLink = cleanLink.slice(0, nextSlash.index);
                         }
-                        return prev + cur['url']
-                            ? (i > 1 ? ' ' : '') +
-                              `<a href="${cur['url']}">${cur['title'] ? cur['title'] : cleanLink}</a>`
-                            : '';
+                        return (
+                            prev +
+                            (cur['url']
+                                ? (i >= 1 ? ' ' : '') +
+                                  `<a href="${cur['url']}">${cur['title'] ? cur['title'] : cleanLink}</a>`
+                                : '')
+                        );
                     }, '');
                 }
 

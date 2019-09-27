@@ -28,7 +28,7 @@
                 "name": "Parminder Singh"
             },
             {
-                "name": "Haines, Eric"
+                "name": "Eric Haines"
             }
         ],
         "type": "book",
@@ -36,7 +36,12 @@
         "publisher": "Packt Publishing",
         "link": [
             {
+                "title": "Packt Website",
                 "url": "https://www.packtpub.com/application-development/vulkan-essentials"
+            },
+            {
+                "title": "Amazon",
+                "url": "https://www.amazon.com/Vulkan-Programming-Guide-Official-Learning-ebook/dp/B01MXGZR73"
             }
         ]
     },
