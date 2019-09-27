@@ -42,15 +42,22 @@ function citationsRender(input: string, citations: BibjSON) {
     // Remove from input if it doesn't exist.
     let foundCitations: string[] = [];
     var cleanedCitationNames: string[] = [];
+    var foundCitationsSet = new Set<string>();
 
     input = input.replace(/\[\^\w*\]/g, (citekey) => {
         var citename = citekey.substr(2, citekey.length - 3);
         if (citename in citations) {
-            foundCitations = [ ...foundCitations, citename ];
 
-            // Get author name to replace citation with
+            // Don't add to table if it already exists
+            if(!foundCitationsSet.has(citename))
+            {
+                foundCitationsSet.add(citename);
+                foundCitations = [ ...foundCitations, citename ];
+            }
+
+            // 🧼 Get author name to replace citation with
             // eg. [Smith et al. 2018]
-            var authorName = `${foundCitations.length}`;
+            var authorName = '';
             var firstAuthor: string = citations[citename].author[0].name;
             var lastNameFirst = /^([^,]*),/.exec(firstAuthor);
             if (lastNameFirst) {
