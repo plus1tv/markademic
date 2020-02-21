@@ -8,7 +8,7 @@ Parminder provides an detailed overview of Vulkan in his book Vulkan Essentials 
 
 \[ \frac{dI(s)}{ds} = - \kappa(s) I(s) + q(s) \]
 
-According to Klaus Engel et al. in their book [Real Time Volume Graphics](http://www.real-time-volume-graphics.org/), The emission-absorption optical model leads to this volume rendering integral.
+According to Klaus Engel et al. in their book [Real Time Volume Graphics](http://www.real-time-volume-graphics.org/), The emission-absorption optical model leads to this volume rendering integral [^singh2016].
 
 ## Machine Learning
 
