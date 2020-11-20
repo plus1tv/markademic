@@ -13,17 +13,6 @@ declare module "remarkable" {
   export = Remarkable;
 }
 
-declare module "highlight.js" {
-  namespace hl {
-    export function getLanguage(lang: string): boolean;
-
-    export function highlight(lang: string, str: string): { value: string };
-
-    export function highlightAuto(str): { value: string };
-  }
-
-  export = hl;
-}
 
 type BibjSON = {
   [citation: string]: any

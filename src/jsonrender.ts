@@ -47,12 +47,6 @@ function citationsRender(input: string, citations: BibjSON) {
     input = input.replace(/\[\^\w*\]/g, (citekey) => {
         var citename = citekey.substr(2, citekey.length - 3);
         if (citename in citations) {
-            // Don't add to table if it already exists
-            if (!foundCitationsSet.has(citename)) {
-                foundCitationsSet.add(citename);
-                foundCitations = [ ...foundCitations, citename ];
-            }
-
             // 🧼 Get author name to replace citation with
             // eg. [Smith et al. 2018]
             var authorName = '';
@@ -74,7 +68,14 @@ function citationsRender(input: string, citations: BibjSON) {
             if (citations[citename].year) {
                 authorName += ` ${citations[citename].year}`;
             }
-            cleanedCitationNames = [ ...cleanedCitationNames, authorName ];
+
+            // Don't add to table if it already exists
+            let citationExists = foundCitationsSet.has(citename);
+            if (!citationExists) {
+                foundCitationsSet.add(citename);
+                foundCitations = [ ...foundCitations, citename ];
+                cleanedCitationNames = [ ...cleanedCitationNames, authorName ];
+            }
 
             return `<a href="#ref_${citename}">[${authorName}]</a>`;
         }
