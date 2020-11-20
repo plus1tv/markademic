@@ -74,7 +74,7 @@ function citationsRender(input: string, citations: BibjSON) {
             if (!citationExists) {
                 foundCitationsSet.add(citename);
                 foundCitations = [ ...foundCitations, citename ];
-                cleanedCitationNames = [ ...cleanedCitationNames, authorName ];
+                cleanedCitationNames[citename] = authorName;
             }
 
             return `<a href="#ref_${citename}">[${authorName}]</a>`;
@@ -90,11 +90,11 @@ function citationsRender(input: string, citations: BibjSON) {
     // 🔲 Generate Table and append to end of input
     let citationTable =
         foundCitations
-            .map((citename, i) => {
+            .map((citename) => {
                 let citation = citations[citename];
                 let { title = '', author = [], publisher = '', journal = '', year = 0, link = [] } = citation;
 
-                let citationName = `<span class="markademic-citename">[${cleanedCitationNames[i]}]</span><br>`;
+                let citationName = `<span class="markademic-citename">[${cleanedCitationNames[citename]}]</span><br>`;
                 let tableTitle =
                     title.length > 0
                         ? `<em><strong><span class="markademic-title">${title}</span></strong></em><br>`
@@ -130,7 +130,7 @@ function citationsRender(input: string, citations: BibjSON) {
 
                 let citationLinks = '';
                 if (link.length > 0) {
-                    citationLinks = link.reduce((prev, cur) => {
+                    citationLinks = link.reduce((prev, cur, i) => {
                         var cleanLink = cur['url'];
                         if (!cleanLink) {
                             cleanLink = '';
