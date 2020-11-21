@@ -1,6 +1,6 @@
 {
   "name": "markademic",
-  "version": "0.12.3",
+  "version": "0.13.0",
   "description": "🏫 A tool for rendering academically flavored markdown.",
   "main": "dist/markademic.js",
   "typings": "./markademic.d.ts",
@@ -49,7 +49,8 @@
   },
   "dependencies": {
     "highlight.js": "^10.4.0",
-    "remarkable": "^2.0.1",
-    "katex": "^0.12.x"
+    "katex": "^0.12.x",
+    "md5": "^2.3.0",
+    "remarkable": "^2.0.1"
   }
 }

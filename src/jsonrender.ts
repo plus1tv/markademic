@@ -1,4 +1,5 @@
 import * as katex from 'katex';
+import * as md5 from 'md5';
 
 type SymbolMap = {
     [latexSymbol: string]: {
@@ -99,12 +100,42 @@ function citationsRender(input: string, citations: BibjSON) {
                     title.length > 0
                         ? `<em><strong><span class="markademic-title">${title}</span></strong></em><br>`
                         : '';
-                let authorNames = author.reduce(
-                    (prev, cur, i) =>
+                let authorNames = author.reduce((prev, cur, i) => {
+                    let authorHTML = '';
+                    /*
+                        (prev, cur, i) =>
                         prev +
-                        (cur['name'] ? (i >= 1 ? (i == author.length - 1 ? ' and ' : ', ') : '') + cur['name'] : ''),
-                    ''
-                );
+                        (cur['name'] ? (i >= 1 ? (i == author.length - 1 ? ' and ' : ', ') : '') + cur['name'] : ''),*/
+                    if (cur['name']) {
+                        // Ands, Commas:
+                        if (i >= 1) {
+                            if (i == author.length - 1) {
+                                authorHTML += ' and ';
+                            } else {
+                                authorHTML += ', ';
+                            }
+                        }
+                        // Author Profile
+
+                        if (cur['github']) {
+                            let imgUrl = cur['github'] + '.png';
+                            authorHTML +=
+                                '<a href="' +
+                                cur['github'] +
+                                '"><img class="markademic-profile" src="' +
+                                imgUrl +
+                                '"></a> ';
+                        } else if (cur['email']) {
+                            let hash = md5('MyEmailAddress@example.com '.trim().toLocaleLowerCase());
+                            let imgUrl = 'https://www.gravatar.com/avatar/' + hash;
+                            authorHTML += '<img class="markademic-profile" src="' + imgUrl + '"> ';
+                        }
+
+                        // Author Name
+                        authorHTML += cur['name'];
+                    }
+                    return prev + authorHTML;
+                }, '');
                 if (authorNames.length > 0) {
                     authorNames = '<span class="markademic-authors">' + authorNames + '</span><br>';
                 }

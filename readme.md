@@ -69,7 +69,6 @@ let html = markademic(config);
 
 In your project you will need the katex css files, as well as highlight.js css files. 
 
-
 ## Markdown Additions
 
 ### Citations
@@ -90,6 +89,30 @@ On the bottom of your markdown file there will be some automatically generated r
 |:---------------|
 | [Gregory 2014]<br>**_Game Engine Architecture, Second Edition._**<br>Gregory, Jason<br>CRC Press, 2014. |
 | [Moller et al. 2008]<br>**_Real Time Rendering, Third Edition._**<br>Akenine-Moller, Thomas<br>CRC Press, 2008. |
+
+#### Social Connections
+
+Often times authors provide some means of contacting them, either via [Twitter](https://twitter.com/alainxyz), [GitHub](https://github.com/alaingalvan), [LinkedIn](https://linkedin.com/in/alaingalvan), Discord, Zoom, Email, etc. If you enter in their social media information in the `author` object, it can be displayed more prominently by Markademic:
+
+```json
+{
+  "satran2018": {
+    "title": "Fence-Based Resource Management",
+    "author": [ { "name": "Michael Satran", "github": "https://github.com/msatranjr" }, { "name": "Steven White", "github": "https://github.com/stevewhims" } ],
+    "year": 2018,
+    "publisher": "Microsoft",
+    "link": [
+      {
+        "url": "https://docs.microsoft.com/en-us/windows/win32/direct3d12/fence-based-resource-management"
+      }
+    ]
+  }
+}
+```
+
+Since the authors each have a GitHub account, this can be used to get their profile picture.
+
+Alternatively, emails can be queried by common community profile picture tools like [Gravatar](https://en.gravatar.com/site/implement/images/).
 
 ### LaTeX
 
