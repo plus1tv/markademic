@@ -116,23 +116,54 @@ function citationsRender(input: string, citations: BibjSON) {
                             }
                         }
                         // Author Profile
-
+                        let authorWebsite = '';
                         if (cur['github']) {
                             let imgUrl = cur['github'] + '.png';
-                            authorHTML +=
-                                '<a href="' +
-                                cur['github'] +
-                                '"><img class="markademic-profile" src="' +
-                                imgUrl +
-                                '"></a> ';
+                            authorHTML += `<img class="markademic-profile" src="${imgUrl}"> `;
+                            authorWebsite = cur['github'];
                         } else if (cur['email']) {
                             let hash = md5('MyEmailAddress@example.com '.trim().toLocaleLowerCase());
                             let imgUrl = 'https://www.gravatar.com/avatar/' + hash;
-                            authorHTML += '<img class="markademic-profile" src="' + imgUrl + '"> ';
+                            authorHTML += `<img class="markademic-profile" src="${imgUrl}"> `;
+                            authorWebsite = `mailto:${cur['email']}`;
                         }
 
                         // Author Name
-                        authorHTML += cur['name'];
+                        if (cur['website']) {
+                            authorWebsite = cur['website'];
+                        }
+                        if (authorWebsite.length > 0) {
+                            authorHTML += `<a href="${authorWebsite}">${cur['name']}</a>`;
+                        } else {
+                            authorHTML += cur['name'];
+                        }
+
+                        if (cur['twitter']) {
+                            let twitterUrl = '';
+                            let twitterHandle = '';
+
+                            try {
+                                //if its a url, extract handle
+                                if (new URL(cur['twitter'])) {
+                                    let reg = /\.com\//.exec(cur['twitter']);
+                                    if (reg) {
+                                        twitterHandle = cur['twitter'].slice(reg.index + '.com/'.length);
+                                    }
+                                    twitterUrl = cur['twitter'];
+                                }
+                            } catch (e) {
+                                //if its a handle, extract handle without @
+                                let reg = /@/.exec(cur['twitter']);
+                                if (reg) {
+                                    twitterHandle = cur['twitter'].slice(reg.index + '@'.length);
+                                } else if (cur['twitter'].length > 0) {
+                                    twitterHandle = cur['twitter'];
+                                }
+                                twitterUrl = 'https://twitter.com/'+twitterHandle;
+                            }
+
+                            authorHTML += ` (<a href="${twitterUrl}">@${twitterHandle}</a>)`;
+                        }
                     }
                     return prev + authorHTML;
                 }, '');

@@ -98,7 +98,16 @@ Often times authors provide some means of contacting them, either via [Twitter](
 {
   "satran2018": {
     "title": "Fence-Based Resource Management",
-    "author": [ { "name": "Michael Satran", "github": "https://github.com/msatranjr" }, { "name": "Steven White", "github": "https://github.com/stevewhims" } ],
+    "author": [
+      {
+      "name": "Michael Satran",
+      "github": "https://github.com/msatranjr"
+      },
+      {
+        "name": "Steven White",
+        "github": "https://github.com/stevewhims"
+      }
+      ],
     "year": 2018,
     "publisher": "Microsoft",
     "link": [
@@ -113,6 +122,19 @@ Often times authors provide some means of contacting them, either via [Twitter](
 Since the authors each have a GitHub account, this can be used to get their profile picture.
 
 Alternatively, emails can be queried by common community profile picture tools like [Gravatar](https://en.gravatar.com/site/implement/images/).
+
+These will be displayed by markademic as so: `<ProfilePicture/> <AuthorName href="{authorWebsite}"/> (@<TwitterHandle/>)`.
+
+```ts
+type BibTexAuthor =
+{
+  name: string,
+  website?: string,
+  github?: string,
+  twitter?: string,
+  email?: string
+}
+```
 
 ### LaTeX
 
