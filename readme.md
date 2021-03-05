@@ -192,7 +192,7 @@ The same syntax highlighting featured in Github flavored markdown, [odds are it 
 [david-dev-url]: https://david-dm.org/plus1tv/markademic#info=devDependencies
 [david-dev-img]: https://david-dm.org/plus1tv/markademic/dev-status.svg?style=flat-square
 [travis-img]: https://img.shields.io/travis/plus1tv/markademic.svg?style=flat-square
-[travis-url]:https://travis-ci.org/plus1tv/markademic
+[travis-url]:https://www.travis-ci.com/github/plus1tv/markademic
 [codecov-img]:https://img.shields.io/codecov/c/github/plus1tv/markademic.svg?style=flat-square
 [codecov-url]: https://codecov.io/gh/plus1tv/markademic
 [npm-img]: https://img.shields.io/npm/v/markademic.svg?style=flat-square

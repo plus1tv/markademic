@@ -14,6 +14,6 @@ declare module "remarkable" {
 }
 
 
-type BibjSON = {
+type BibJSON = {
   [citation: string]: any
 }
