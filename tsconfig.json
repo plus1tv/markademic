@@ -23,8 +23,10 @@
     "experimentalDecorators": true,
     "noEmitHelpers": false,
     "sourceMap": true,
-    "strictNullChecks": true,
-    "jsx": "react"
+    "strictNullChecks": false,
+    "jsx": "react",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
   },
   "compileOnSave": false,
   "buildOnSave": false

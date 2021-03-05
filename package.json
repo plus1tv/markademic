@@ -1,20 +1,19 @@
 {
   "name": "markademic",
-  "version": "0.14.0",
+  "version": "0.14.2",
   "description": "🏫 A tool for rendering academically flavored markdown.",
   "main": "dist/markademic.js",
   "typings": "./markademic.d.ts",
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
-    "pretest": "tsc",
-    "test": "ava tests/markademic.spec.js",
+    "build": "ts-node webpack.ts production",
+    "test": "ava tests/markademic.spec.ts",
     "coverage": "nyc npm test && nyc report --reporter=lcov && codecov",
     "test:watch": "ava --converage --watch",
     "start": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hyperfuse/markademic.git"
+    "url": "git+https://github.com/plus1tv/markademic.git"
   },
   "keywords": [
     "markdown",
@@ -29,26 +28,32 @@
   "author": "Alain Galvan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hyperfuse/markademic/issues"
+    "url": "https://github.com/plus1tv/markademic/issues"
   },
-  "homepage": "https://github.com/hyperfuse/markademic#readme",
+  "homepage": "https://github.com/plus1tv/markademic#readme",
+  "ava": {
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
   "devDependencies": {
     "@types/katex": "0.11.x",
-    "@types/node": "^14.14.x",
-    "ava": "^3.13.x",
+    "@types/node": "^14.14.31",
+    "ava": "^3.15.x",
+    "clean-webpack-plugin": "^3.0.x",
     "codecov": "^3.8.x",
     "coveralls": "^3.1.x",
     "nyc": "^15.1.x",
     "ts-loader": "^8.0.x",
-    "typescript": "^4.1.x",
-    "clean-webpack-plugin": "^3.0.x",
-    "uglifyjs-webpack-plugin": "^2.2.x",
-    "webpack": "^4.41.x",
-    "webpack-command": "^0.5.x",
-    "webpack-merge": "^4.2.x"
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.x",
+    "webpack": "^5.24.x"
   },
   "dependencies": {
-    "highlight.js": "^10.4.0",
+    "highlight.js": "^10.6.0",
     "katex": "^0.12.x",
     "md5": "^2.3.0",
     "remarkable": "^2.0.1"
