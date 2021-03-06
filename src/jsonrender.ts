@@ -37,7 +37,7 @@ ${mathSymbol.description}
     return input + symbolTable;
 }
 
-function citationsRender(input: string, citations: BibjSON) {
+function citationsRender(input: string, citations: BibJSON) {
     // 🔍 Find all instances of [^${citename}].
     // Check if `citename` exists in citations object.
     // Remove from input if it doesn't exist.
