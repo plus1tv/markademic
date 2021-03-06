@@ -4,7 +4,7 @@ import path from 'path';
 import { argv } from 'process';
 
 let env = process.env['NODE_ENV'];
-let isProduction = env && env.match(/production/) || argv[2] == 'production';
+let isProduction = env && env.match(/production/) || argv.reduce((prev, cur) => prev || cur === '--production', false);
 
 let config: webpack.Configuration = {
     context: path.join(__dirname, 'src'),

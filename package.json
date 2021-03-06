@@ -5,7 +5,7 @@
   "main": "dist/markademic.js",
   "typings": "./markademic.d.ts",
   "scripts": {
-    "build": "ts-node webpack.ts production",
+    "build": "ts-node webpack.ts --production",
     "test": "ava tests/markademic.spec.ts",
     "coverage": "nyc npm test && nyc report --reporter=lcov && codecov",
     "test:watch": "ava --converage --watch",
