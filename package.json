@@ -5,7 +5,7 @@
   "main": "dist/markademic.js",
   "typings": "./markademic.d.ts",
   "scripts": {
-    "build": "ts-node webpack.ts --production",
+    "build": "cross-env NODE_ENV=production ts-node webpack.ts",
     "test": "ava tests/markademic.spec.ts",
     "coverage": "nyc npm test && nyc report --reporter=lcov && codecov",
     "test:watch": "ava --converage --watch",
@@ -46,6 +46,7 @@
     "clean-webpack-plugin": "^3.0.x",
     "codecov": "^3.8.x",
     "coveralls": "^3.1.x",
+    "cross-env": "^7.0.3",
     "nyc": "^15.1.x",
     "ts-loader": "^8.0.x",
     "ts-node": "^9.1.1",
