@@ -81,7 +81,7 @@ becomes:
 
 > I sometimes worry my life's work will be reduced to a 200-line @Shadertoy submission [[Sweeny 2015]](#sweeny2015).
 
-Similar to Latex References, to place references, simply write `[^yourrefname]`, and this will be matched with your BibJSON object's key of the same name (minus the `^`). (This is directly inspired by the same feature on [stackedit.io](https://stackedit.io)).
+Similar to Latex References, to place references, simply write `[^yourrefname]`, and this will be matched with your BibJSON object's key of the same name (minus the `^`). (This is directly inspired by the same feature on [stackedit.io](https://stackedit.io)). This uses the [BibJSON specification](https://github.com/plus1tv/bibtex-bibjson), which is just a JSON version of common LaTeX bibliographies.
 
 On the bottom of your markdown file there will be some automatically generated references that look like this:
 
