@@ -2,7 +2,7 @@ import test from 'ava';
 import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
-import markademic from '../src/markademic';
+import { markademic } from '../dist/markademic';
 
 
 test('Test Example', (t) => {

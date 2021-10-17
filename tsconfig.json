@@ -15,7 +15,7 @@
       "dom"
     ],
     "module": "commonjs",
-    "declaration": false,
+    "composite": true,
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
     "removeComments": false,
@@ -28,6 +28,8 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
   },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"],
   "compileOnSave": false,
   "buildOnSave": false
 }
