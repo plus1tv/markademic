@@ -1,6 +1,6 @@
 {
   "name": "markademic",
-  "version": "0.15.0",
+  "version": "0.15.1",
   "description": "🏫 A tool for rendering academically flavored markdown.",
   "typings": "dist/src/markademic.d.ts",
   "types": "dist/src/markademic.d.ts",
@@ -8,7 +8,10 @@
   "main": "dist/markademic.js",
   "module": "dist/markademic.module.js",
   "unpkg": "dist/markademic.umd.js",
-  "exports": "./dist/markademic.modern.js",
+  "exports": {
+    "require": "./dist/markademic.js",
+    "default": "./dist/markademic.modern.js"
+  },
   "scripts": {
     "build": "cross-env NODE_ENV=production microbundle ./src/markademic.ts --generateTypes",
     "test": "ava tests/markademic.spec.ts",
