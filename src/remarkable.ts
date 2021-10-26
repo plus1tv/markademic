@@ -1,4 +1,4 @@
-import * as Remarkable from 'remarkable';
+import * as Remarkable from "remarkable";
 const remark: any = Remarkable as any;
 import hljs from "highlight.js";
 const { getLanguage, highlight, highlightAuto } = hljs;
@@ -8,7 +8,7 @@ const remarkable = new remark.Remarkable({
   highlight: function (str, lang) {
     if (lang && getLanguage(lang)) {
       try {
-        return highlight(lang, str).value;
+        return highlight(str, { language: lang }).value;
       } catch (err) {}
     }
 
