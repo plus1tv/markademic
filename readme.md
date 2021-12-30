@@ -4,8 +4,6 @@
 [![License][license-img]][license-url]
 [![Unit Tests][travis-img]][travis-url]
 [![Coverage Tests][codecov-img]][codecov-url]
-[![Dependency Status][david-img]][david-url]
-[![devDependency Status][david-dev-img]][david-dev-url]
 
 ```bash
 npm i markademic -S
@@ -187,10 +185,6 @@ The same syntax highlighting featured in Github flavored markdown, [odds are it 
 [release-img]: https://img.shields.io/badge/release-0.1.0-4dbfcc.svg?style=flat-square
 [license-img]: http://img.shields.io/:license-mit-blue.svg?style=flat-square
 [license-url]: https://opensource.org/licenses/MIT
-[david-url]: https://david-dm.org/plus1tv/markademic
-[david-img]: https://david-dm.org/plus1tv/markademic.svg?style=flat-square
-[david-dev-url]: https://david-dm.org/plus1tv/markademic#info=devDependencies
-[david-dev-img]: https://david-dm.org/plus1tv/markademic/dev-status.svg?style=flat-square
 [travis-img]: https://img.shields.io/travis/plus1tv/markademic.svg?style=flat-square
 [travis-url]:https://www.travis-ci.com/github/plus1tv/markademic
 [codecov-img]:https://img.shields.io/codecov/c/github/plus1tv/markademic.svg?style=flat-square
