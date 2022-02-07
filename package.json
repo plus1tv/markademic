@@ -1,6 +1,6 @@
 {
   "name": "markademic",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "description": "🏫 A tool for rendering academically flavored markdown.",
   "typings": "dist/src/src/markademic.d.ts",
   "types": "dist/src/src/markademic.d.ts",
@@ -16,7 +16,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production microbundle ./src/markademic.ts --generateTypes",
     "develop": "cross-env NODE_ENV=development microbundle ./src/markademic.ts --generateTypes",
-    "test": "ava tests/markademic.spec.ts",
+    "test": "c8 ava",
     "coverage": "nyc npm test && nyc report --reporter=lcov && codecov",
     "test:watch": "ava --converage --watch",
     "start": "npm run build"
@@ -42,11 +42,16 @@
   },
   "homepage": "https://github.com/plus1tv/markademic#readme",
   "ava": {
-    "extensions": [
-      "ts"
+    "verbose": true,
+    "extensions": {
+      "ts": "module"
+    },
+    "nodeArguments": [
+      "--loader=ts-node/esm",
+      "--experimental-specifier-resolution=node"
     ],
-    "require": [
-      "ts-node/register/transpile-only"
+    "files": [
+      "tests/**/*.test.ts"
     ]
   },
   "devDependencies": {
@@ -54,6 +59,7 @@
     "@types/node": "^17.0.15",
     "@types/remarkable": "^1.7.5",
     "ava": "^4.0.x",
+    "c8": "^7.11.0",
     "codecov": "^3.8.x",
     "coveralls": "^3.1.x",
     "cross-env": "^7.0.3",

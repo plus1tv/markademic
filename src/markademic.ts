@@ -6,7 +6,6 @@ import { symbolRender, citationsRender } from "./jsonrender";
 export type Config = {
   input: string;
   citations?: any;
-  symbols?: { [latexSymbol: string]: { type: string; description: string } };
   rerouteLinks?: (str: string) => string;
 };
 
@@ -20,8 +19,6 @@ function markademic(config: Config) {
   else out = remarkableRender(config.input);
 
   if (config.rerouteLinks) out = rerouteLinks(out, config.rerouteLinks);
-
-  if (config.symbols) out = symbolRender(out, config.symbols);
 
   if (config.citations) out = citationsRender(out, config.citations);
 

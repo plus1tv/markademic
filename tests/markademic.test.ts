@@ -13,15 +13,10 @@ test('Test Example', (t) => {
     readFileSync(join(__dirname, 'references.json'))
       .toString());
 
-  var symbols = JSON.parse(
-    readFileSync(join(__dirname, 'symbols.json'))
-      .toString());
-
   var compiled = markademic({
     input,
     rerouteLinks: (link) => join('https://alain.xyz/myblogpost/', link),
-    citations,
-    symbols
+    citations
   });
 
   //Verify if latex compiled, tables were generated.

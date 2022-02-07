@@ -16,6 +16,7 @@ pids
 *.ssh
 **/*.map
 **/*.js
+tmp
 
 # node-waf configuration
 .lock-wscript

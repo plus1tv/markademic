@@ -37,10 +37,7 @@ type Config = {
 
   // BibJSON file you're using in file.
   citations?: BibJSON,
-
-  // Symbols used in formulas.
-  symbols?: {[latexSymbol: string]: {type: string, description: string}},
-
+  
   // Reroute any relative links
   rerouteLinks?: ((str: string) => string)
 
@@ -58,7 +55,6 @@ import path from 'path';
 let config = {
   input: fs.readFileSync('./input.md').toString(),
   citations: require('./citations.json'),
-  symbols: require('./symbols.json'),
   rerouteLinks: (link) => path.join('https://alain.xyz/myblogpost/', link)
 }
 
@@ -146,13 +142,7 @@ becomes:
 
 <img src="https://latex.codecogs.com/png.latex?\gamma&space;=&space;\mu&space;\chi&space;&plus;&space;\beta" title="\gamma = \mu \chi + \beta" />
 
-Easily describe mathematical proofs, formulas, or formalize some algorithms. Marademic features a latex parser as well as a `symbols` config parameter where you can specify what the symbols used in your document mean. Then on the bottom of the page just before references, this will appear *(formatted of course!)*.
-
-| Symbol        | Type               | Description                     |
-|:--------------|:-------------------|:--------------------------------|
-| <img src="https://latex.codecogs.com/png.latex?\(&space;\hat{n}&space;\)" title="\( \hat{n} \)" /> | <img src="https://latex.codecogs.com/png.latex?\(&space;\mathbb{R}^2&space;\)" title="\( \mathbb{R}^2 \)" /> | Normal to surface point X |
-
-Inspired by the same feature in [The Graphics Codex](http://grahpicscodex.com).
+Easily describe mathematical proofs, formulas, or formalize some algorithms.
 
 ### Syntax Highlighting
 
