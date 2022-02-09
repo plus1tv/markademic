@@ -8,9 +8,11 @@ const {
   registerLanguage,
   registerAliases,
 } = hljs;
+import glsl from "./languages/glsl";
 import hlsl from "./languages/hlsl";
 import cpp from "./languages/cpp";
 import wgsl from "./languages/wgsl";
+registerLanguage("glsl", glsl);
 registerLanguage("hlsl", hlsl);
 registerLanguage("cpp", cpp);
 registerLanguage("wgsl", wgsl);
