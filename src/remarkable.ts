@@ -8,16 +8,20 @@ const {
   registerLanguage,
   registerAliases,
 } = hljs;
+
+import cpp from "./languages/cpp";
 import glsl from "./languages/glsl";
 import hlsl from "./languages/hlsl";
-import cpp from "./languages/cpp";
+import msl from "./languages/msl";
 import wgsl from "./languages/wgsl";
+
+registerLanguage("cpp", cpp);
 registerLanguage("glsl", glsl);
 registerLanguage("hlsl", hlsl);
-registerLanguage("cpp", cpp);
+registerLanguage("msl", msl);
 registerLanguage("wgsl", wgsl);
+
 registerAliases(["asm", "amdil", "ptx"], { languageName: "x86asm" });
-registerAliases("msl", { languageName: "cpp" });
 
 const remarkable = new remark.Remarkable({
   html: true,
