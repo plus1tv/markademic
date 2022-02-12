@@ -2,7 +2,6 @@ tests
 coverage
 docs
 src
-!dist/src
 webpack.*.js
 .travis.yml
 definitions.d.ts

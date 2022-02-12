@@ -1,7 +1,7 @@
 import remarkableRender from "./remarkable";
 import katexRender from "./katex";
 import rerouteLinks from "./reroute";
-import { symbolRender, citationsRender } from "./jsonrender";
+import { citationsRender } from "./jsonrender";
 
 export type Config = {
   input: string;

@@ -1,9 +1,9 @@
 {
   "name": "markademic",
-  "version": "0.18.7",
+  "version": "0.19.1",
   "description": "🏫 A tool for rendering academically flavored markdown.",
-  "typings": "dist/src/src/markademic.d.ts",
-  "types": "dist/src/src/markademic.d.ts",
+  "typings": "dist/markademic.d.ts",
+  "types": "dist/markademic.d.ts",
   "source": "src/markademic.ts",
   "main": "dist/markademic.js",
   "module": "dist/markademic.js",
@@ -14,8 +14,8 @@
     "default": "./dist/markademic.js"
   },
   "scripts": {
-    "build": "cross-env NODE_ENV=production microbundle ./src/markademic.ts --generateTypes",
-    "develop": "cross-env NODE_ENV=development microbundle ./src/markademic.ts --generateTypes",
+    "build": "cross-env NODE_ENV=production microbundle ./src/markademic.ts --generateTypes --target node",
+    "develop": "cross-env NODE_ENV=development microbundle ./src/markademic.ts --generateTypes --target node",
     "test": "c8 ava",
     "coverage": "nyc npm test && nyc report --reporter=lcov && codecov",
     "test:watch": "ava --converage --watch",
@@ -56,8 +56,8 @@
   },
   "devDependencies": {
     "@types/katex": "0.11.x",
-    "@types/node": "^17.0.16",
-    "@types/remarkable": "^1.7.5",
+    "@types/node": "^17.0.17",
+    "@types/remarkable": "^2.0.3",
     "ava": "^4.0.x",
     "c8": "^7.11.0",
     "codecov": "^3.8.x",

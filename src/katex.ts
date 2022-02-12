@@ -1,5 +1,6 @@
-import * as katex from 'katex';
 
+import katex from "katex";
+const { renderToString } = katex;
 /**
  * A Katex wrapper class.
  * A port of RocketChat's katex class.
@@ -7,18 +8,23 @@ import * as katex from 'katex';
 class Katex {
   public delimiterMap = [
     {
-      opener: '\\[',
-      closer: '\\]',
-      displayMode: true
-    }, {
-      opener: '\\(',
-      closer: '\\)',
-      displayMode: false
-    }
+      opener: "\\[",
+      closer: "\\]",
+      displayMode: true,
+    },
+    {
+      opener: "\\(",
+      closer: "\\)",
+      displayMode: false,
+    },
   ];
 
   findOpeningDelimiter = (str: string, start: number) => {
-    var m, match, matchIndex, o, pos,
+    var m,
+      match,
+      matchIndex,
+      o,
+      pos,
       positions: any[] = [],
       matches: any[] = [];
 
@@ -26,15 +32,11 @@ class Katex {
     this.delimiterMap.map((d) =>
       matches.push({
         options: d,
-        pos: str.indexOf(d.opener, start)
+        pos: str.indexOf(d.opener, start),
       })
     );
 
-    matches.map((m) =>
-      (m.pos >= 0) ? positions.push(m.pos) : null
-    );
-
-
+    matches.map((m) => (m.pos >= 0 ? positions.push(m.pos) : null));
 
     if (positions.length === 0) {
       return null;
@@ -53,12 +55,12 @@ class Katex {
 
     match = matches[matchIndex];
     return match;
-  }
+  };
 
   getLatexBoundaries = (str, openingDelimiterMatch) => {
     var closer, closerIndex, inner, outer;
-    inner = new Boundary;
-    outer = new Boundary;
+    inner = new Boundary();
+    outer = new Boundary();
     closer = openingDelimiterMatch.options.closer;
     outer.start = openingDelimiterMatch.pos;
     inner.start = openingDelimiterMatch.pos + closer.length;
@@ -70,14 +72,16 @@ class Katex {
     outer.end = inner.end + closer.length;
     return {
       outer,
-      inner
+      inner,
     };
-  }
+  };
 
   findLatex = (str) => {
     var match, openingDelimiterMatch, start;
     start = 0;
-    while ((openingDelimiterMatch = this.findOpeningDelimiter(str, start++)) != null) {
+    while (
+      (openingDelimiterMatch = this.findOpeningDelimiter(str, start++)) != null
+    ) {
       match = this.getLatexBoundaries(str, openingDelimiterMatch);
       if (match != null ? match.inner.extract(str).trim().length : void 0) {
         match.options = openingDelimiterMatch.options;
@@ -85,7 +89,7 @@ class Katex {
       }
     }
     return null;
-  }
+  };
 
   extractLatex = (str, match) => {
     var after, before, latex;
@@ -95,27 +99,27 @@ class Katex {
     return {
       before,
       latex,
-      after
+      after,
     };
-  }
+  };
 
   renderLatex = (latex, displayMode) => {
     var displayMode, e, error, rendered;
     try {
-      rendered = katex.renderToString(latex, {
-        displayMode
+      rendered = renderToString(latex, {
+        displayMode,
       });
     } catch (error) {
       e = error;
       displayMode = displayMode ? "block" : "inline";
-      rendered = `<div class="katex-error katex-${displayMode}-error">${e.message}</div>`
+      rendered = `<div class="katex-error katex-${displayMode}-error">${e.message}</div>`;
     }
     return rendered;
-  }
+  };
 
   render = (str) => {
     var match, parts, rendered, result;
-    result = '';
+    result = "";
     while (true) {
       match = this.findLatex(str);
       if (match == null) {
@@ -128,8 +132,7 @@ class Katex {
       str = parts.after;
     }
     return result;
-  }
-
+  };
 }
 
 class Boundary {

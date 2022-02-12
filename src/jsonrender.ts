@@ -1,4 +1,3 @@
-import * as katex from "katex";
 import * as md5 from "md5";
 
 type BibJSON = {
@@ -11,36 +10,6 @@ type SymbolMap = {
     description: string;
   };
 };
-
-function symbolRender(input: string, symbols: SymbolMap) {
-  let symbolTable =
-    Object.keys(symbols)
-      .map((key) => {
-        let mathSymbol = symbols[key];
-
-        var symbolRender = katex.renderToString(key);
-
-        let row = `
-<tr>
-<td>
-${symbolRender}
-</td>
-<td>
-${mathSymbol.type}
-</td>
-<td>
-${mathSymbol.description}
-</td>
-</tr>
-`;
-
-        return row;
-      })
-      .reduce((prev, cur) => prev + cur, '<table class="markademic-symbols">') +
-    "</table>";
-
-  return input + symbolTable;
-}
 
 function citationsRender(input: string, citations: BibJSON) {
   // 🔍 Find all instances of [^${citename}].
@@ -259,4 +228,4 @@ ${citationLinks}
   return input + citationTable;
 }
 
-export { symbolRender, citationsRender };
+export { citationsRender };
