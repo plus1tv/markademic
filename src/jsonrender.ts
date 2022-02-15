@@ -27,16 +27,11 @@ function citationsRender(input: string, citations: BibJSON) {
       {
         return "";
       }
-      // Sanitize input:
-      if(curCitation?.author && !Array.isArray(curCitation?.author))
-      {
-        curCitation.author = [curCitation.author];
-      }
       // 🧼 Get author name to replace citation with
       // eg. [Smith et al. 2018]
       // Default to the publisher first.
       var authorName = curCitation?.publisher || "";
-      if (curCitation?.author.length > 0) {
+      if (curCitation?.author?.length > 0) {
         var firstAuthor: string = curCitation.author[0].name;
         var lastNameFirst = /^([^,]*),/.exec(firstAuthor);
         if (lastNameFirst) {
