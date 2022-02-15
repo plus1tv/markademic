@@ -22,25 +22,37 @@ function citationsRender(input: string, citations: BibJSON) {
   input = input.replace(/\[\^\w*\]/g, (citekey) => {
     var citename = citekey.substr(2, citekey.length - 3);
     if (citename in citations) {
+      let curCitation = citations[citename];
+      if(curCitation === undefined)
+      {
+        return "";
+      }
+      // Sanitize input:
+      if(curCitation?.author && !Array.isArray(curCitation?.author))
+      {
+        curCitation.author = [curCitation.author];
+      }
       // 🧼 Get author name to replace citation with
       // eg. [Smith et al. 2018]
-      var authorName = "";
-      var firstAuthor: string = citations[citename].author[0].name;
-      var lastNameFirst = /^([^,]*),/.exec(firstAuthor);
-      if (lastNameFirst) {
-        authorName = lastNameFirst[0].substr(lastNameFirst[0].length - 1);
-      } else {
-        var lastNameLast = / .*$/.exec(firstAuthor);
-        if (lastNameLast) {
-          authorName = lastNameLast[0].substr(1, lastNameLast[0].length - 1);
+      // Default to the publisher first.
+      var authorName = curCitation?.publisher || "";
+      if (curCitation?.author.length > 0) {
+        var firstAuthor: string = curCitation.author[0].name;
+        var lastNameFirst = /^([^,]*),/.exec(firstAuthor);
+        if (lastNameFirst) {
+          authorName = lastNameFirst[0].substr(lastNameFirst[0].length - 1);
+        } else {
+          var lastNameLast = / .*$/.exec(firstAuthor);
+          if (lastNameLast) {
+            authorName = lastNameLast[0].substr(1, lastNameLast[0].length - 1);
+          }
+        }
+
+        if (curCitation.author.length > 1) {
+          authorName += " et al.";
         }
       }
-
-      if (citations[citename].author.length > 1) {
-        authorName += " et al.";
-      }
-
-      if (citations[citename].year) {
+      if (curCitation.year) {
         authorName += ` ${citations[citename].year}`;
       }
 
