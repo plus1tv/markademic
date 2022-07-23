@@ -55,24 +55,24 @@
     ]
   },
   "devDependencies": {
-    "@types/katex": "0.11.x",
-    "@types/node": "^17.0.17",
-    "@types/remarkable": "^2.0.3",
-    "ava": "^4.0.x",
-    "c8": "^7.11.0",
+    "@types/katex": "0.14.x",
+    "@types/node": "^18.0.x",
+    "@types/remarkable": "^1.7.5",
+    "ava": "^4.3.x",
+    "c8": "^7.12.x",
     "codecov": "^3.8.x",
     "coveralls": "^3.1.x",
-    "cross-env": "^7.0.3",
-    "microbundle": "^0.14.2",
+    "cross-env": "^7.0.x",
+    "microbundle": "^0.15.x",
     "nyc": "^15.1.x",
-    "ts-loader": "^9.2.x",
-    "ts-node": "^10.5.0",
-    "typescript": "^4.5.x"
+    "ts-loader": "^9.3.x",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.x"
   },
   "dependencies": {
-    "highlight.js": "^11.4.0",
-    "katex": "^0.15.x",
-    "md5": "^2.3.0",
-    "remarkable": "^2.0.1"
+    "highlight.js": "^11.6.x",
+    "katex": "^0.16.x",
+    "md5": "^2.3.x",
+    "remarkable": "^2.0.x"
   }
 }

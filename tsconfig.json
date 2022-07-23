@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2018",
     "lib": [
       "es2017",
       "es2017.object",
@@ -14,7 +14,7 @@
       "es5",
       "dom"
     ],
-    "module": "commonjs",
+    "module": "ESNext",
     "composite": true,
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
@@ -26,7 +26,8 @@
     "strictNullChecks": false,
     "jsx": "react",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"],
