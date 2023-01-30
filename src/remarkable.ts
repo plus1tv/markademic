@@ -29,7 +29,9 @@ const remarkable = new remark.Remarkable({
     if (lang && getLanguage(lang)) {
       try {
         return highlight(str, { language: lang }).value;
-      } catch (err) {}
+      } catch (err) {
+        console.error(err);
+      }
     }
 
     try {
